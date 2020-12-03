@@ -5,11 +5,11 @@ import homework.dao.DBService;
 
 import java.util.ArrayList;
 
-public class Number {
+public class Total {
 
     private DBService dbService;
     private int N;
-    private final ArrayList<Integer> list = new ArrayList<Integer>(N);
+    private final ArrayList<Integer> list = new ArrayList<>(N);
 
     public void setDbService(DBService dbService) {
         this.dbService = dbService;
@@ -33,8 +33,4 @@ public class Number {
         return dbService.getNumbersDB();
     }
 
-
-    public ArrayList<Integer> getList(ArrayList<Integer> list) {
-        return list;
-    }
 }

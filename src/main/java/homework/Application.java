@@ -1,8 +1,8 @@
-package homework.base;
+package homework;
 
-import homework.numbers.Number;
+import homework.numbers.Total;
 import homework.dao.DBService;
-import homework.xml.Murshaller;
+import homework.xml.MarshallerXML;
 import homework.xml.Parser;
 import homework.xml.XslTransform;
 
@@ -15,15 +15,15 @@ public class Application {
         long startTime = System.currentTimeMillis();
         System.out.println("Start");
         DBService dbService = new DBService();
-        Number number = new Number();
-        number.setDbService(dbService);
+        Total total = new Total();
+        total.setDbService(dbService);
         String N = args[0];
-        number.setN(N);
-        number.addNToTable();
+        total.setN(N);
+        total.addNToTable();
 
-        list = number.getNumbers();
+        list = total.getNumbers();
 
-        Murshaller.marshaling();
+        MarshallerXML.marshaling();
         XslTransform.Transforming();
         Parser.parrsing();
 

@@ -45,7 +45,7 @@ public class NumbersDAO {
             stmt.execute("select * from test");
             ResultSet result = stmt.getResultSet();
             int id = 0;
-            ArrayList<Integer> list = new ArrayList<Integer>();
+            ArrayList<Integer> list = new ArrayList<>();
             while(result.next()) {
                 id = result.getInt(1);
                 list.add(id);

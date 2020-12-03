@@ -1,15 +1,14 @@
 package homework.xml;
 
-import homework.base.Application;
+import homework.Application;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class Murshaller {
+public class MarshallerXML {
 
     static Entries entries;
     static
@@ -21,7 +20,7 @@ public class Murshaller {
             e.printStackTrace();
         }
 
-        entries.setEntries(new ArrayList<Entry>());
+        entries.setEntries(new ArrayList<>());
 
         for (int i =1; i <= list.size(); i++) {
             Entry s1 = new Entry();
@@ -35,12 +34,12 @@ public class Murshaller {
     public static void marshaling() throws JAXBException {
 
         JAXBContext jaxbContext = JAXBContext.newInstance(Entries.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        javax.xml.bind.Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        jaxbMarshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         //jaxbMarshaller.marshal(entries, System.out);
 
-        jaxbMarshaller.marshal(entries, new File("src/main/java/homework/model/1.xml"));
+        jaxbMarshaller.marshal(entries, new File("src/main/resources/1.xml"));
     }
 }

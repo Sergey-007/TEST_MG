@@ -1,7 +1,6 @@
 package homework.xml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "entry")
@@ -9,9 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Entry {
 
     private Integer field;
-
-    @XmlAttribute
-    private String ID;
 
     public Integer getField() {
         return field;
@@ -21,7 +17,4 @@ public class Entry {
         this.field = field;
     }
 
-    public String getID(){
-        return ID;
-    }
 }

@@ -14,7 +14,7 @@ public class Parser {
 
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder  = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse("src/main/java/homework/model/2.xml");
+        Document document = documentBuilder.parse("src/main/resources/2.xml");
         NodeList nodeList = document.getElementsByTagName("entry");
         long sum = 0;
         for(int i = 0; i < nodeList.getLength(); i++) {

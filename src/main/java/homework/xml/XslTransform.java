@@ -11,9 +11,9 @@ import java.io.File;
 public class XslTransform {
     public static void Transforming() throws TransformerException {
         TransformerFactory factory = TransformerFactory.newInstance();
-        Source xslt = new StreamSource(new File("src/main/java/homework/model/1a.xsl"));
+        Source xslt = new StreamSource(new File("src/main/resources/1a.xsl"));
         Transformer transformer = factory.newTransformer(xslt);
-        Source xml = new StreamSource(new File("src/main/java/homework/model/1.xml"));
-        transformer.transform(xml, new StreamResult(new File("src/main/java/homework/model/2.xml")));
+        Source xml = new StreamSource(new File("src/main/resources/1.xml"));
+        transformer.transform(xml, new StreamResult(new File("src/main/resources/2.xml")));
     }
 }
