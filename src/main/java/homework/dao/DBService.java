@@ -1,5 +1,7 @@
 package homework.dao;
 
+import org.h2.jdbcx.JdbcDataSource;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -7,9 +9,8 @@ public class DBService {
     private final Connection connection;
 
     public DBService() {
-        this.connection = getMysqlConnection();
+        this.connection = getH2Connection();
     }
-
 
     public void addToTable(ArrayList<Integer> list) throws DBException {
         try {
@@ -33,41 +34,25 @@ public class DBService {
         }
     }
 
-    public void cleanUp() throws DBException {
-        NumbersDAO dao = new NumbersDAO(connection);
-        try {
-            dao.dropTable();
-        } catch (SQLException e) {
-            throw new DBException(e);
-        }
-    }
-
     public ArrayList<Integer> getNumbersDB() {
         NumbersDAO numbersDAO = new NumbersDAO(connection);
         return numbersDAO.getNumbersDAO();
     }
 
-
-    @SuppressWarnings("UnusedDeclaration")
-    public static Connection getMysqlConnection() {
+    public static Connection getH2Connection() {
         try {
-            DriverManager.registerDriver((Driver) Class.forName("com.mysql.jdbc.Driver").newInstance());
+            String url = "jdbc:h2:./h2db";
+            String name = "tully";
+            String pass = "tully";
 
-            StringBuilder url = new StringBuilder();
+            JdbcDataSource ds = new JdbcDataSource();
+            ds.setURL(url);
+            ds.setUser(name);
+            ds.setPassword(pass);
 
-            url
-                    .append("jdbc:mysql://")
-                    .append("localhost:")
-                    .           //host name
-                    append("3306/").                //port
-                    append("db_magnit?").          //db name
-                    append("user=Sergey&").          //login
-                    append("password=07081991Sergey&").
-                    append("serverTimezone=UTC");       //password
-
-            Connection connection = DriverManager.getConnection(url.toString());
+            Connection connection = DriverManager.getConnection(url, name, pass);
             return connection;
-        } catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;

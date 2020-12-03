@@ -1,6 +1,6 @@
 package homework.xml;
 
-import homework.base.Main;
+import homework.base.Application;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -14,7 +14,7 @@ public class Murshaller {
     static Entries entries;
     static
     {
-        ArrayList<Integer> list = Main.getList();
+        ArrayList<Integer> list = Application.getList();
         try {
             entries = new Entries();
         } catch (ParseException e) {
@@ -41,6 +41,6 @@ public class Murshaller {
 
         //jaxbMarshaller.marshal(entries, System.out);
 
-        jaxbMarshaller.marshal(entries, new File("D:/IT/1.xml"));
+        jaxbMarshaller.marshal(entries, new File("src/main/java/homework/model/1.xml"));
     }
 }

@@ -32,10 +32,6 @@ public class NumbersDAO {
         }
     }
 
-    public void dropTable() throws SQLException {
-        executor.execUpdate("drop table test");
-    }
-
     public ArrayList<Integer> getNumbersDAO() {
         try {
             return executor.execQuery("select * from test");

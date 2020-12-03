@@ -25,7 +25,7 @@ public class Executor {
         stmt.execute(query);
         ResultSet result = stmt.getResultSet();
         int id = 0;
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
         while(result.next()) {
             id = result.getInt(1);
             list.add(id);

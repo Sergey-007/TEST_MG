@@ -1,7 +1,5 @@
 package homework.numbers;
 
-
-import homework.base.Main;
 import homework.dao.DBException;
 import homework.dao.DBService;
 
@@ -11,13 +9,13 @@ public class Number {
 
     private DBService dbService;
     private int N;
-    private final ArrayList<Integer> list = new ArrayList<>(N);
+    private final ArrayList<Integer> list = new ArrayList<Integer>(N);
 
     public void setDbService(DBService dbService) {
         this.dbService = dbService;
     }
-    public void setN(int n) {
-        N = n;
+    public void setN(String n) {
+        N = Integer.parseInt(n);
     }
 
     public void addNToTable(){
