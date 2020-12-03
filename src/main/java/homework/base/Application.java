@@ -12,13 +12,10 @@ public class Application {
     static ArrayList<Integer> list;
 
     public static void main(String[] args) throws Exception {
-
         long startTime = System.currentTimeMillis();
         System.out.println("Start");
-
         DBService dbService = new DBService();
         Number number = new Number();
-
         number.setDbService(dbService);
         String N = args[0];
         number.setN(N);
